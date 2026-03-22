@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonk Jila Bairwa Mahasabha — Shiksha · Sangathan · Samriddhi</title>
+  <meta name="description" content="Official website of Tonk Jila Bairwa Mahasabha, Rajasthan. Empowering the Bairwa community through Education, Unity, and Prosperity." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================
+       CSS CUSTOM PROPERTIES
+    ============================================ */
+    :root {
+      --clr-primary: #1A3A8F;
+      --clr-primary-dark: #0F2460;
+      --clr-primary-deeper: #0A1A45;
+      --clr-accent: #F5A623;
+      --clr-accent-light: #FFD580;
+      --clr-white: #FFFFFF;
+      --clr-off-white: #F4F7FC;
+      --clr-light-blue: #E8EEF9;
+      --clr-text: #2D2D2D;
+      --clr-text-muted: #6B7280;
+      --clr-overlay: rgba(10, 26, 69, 0.75);
+
+      --ff-heading: 'Tiro Devanagari Hindi', serif;
+      --ff-body: 'DM Sans', sans-serif;
+
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 4px 20px rgba(0,0,0,0.12);
+      --shadow-lg: 0 8px 40px rgba(0,0,0,0.16);
+      --shadow-glow-gold: 0 0 20px rgba(245,166,35,0.3);
+
+      --radius: 12px;
+      --radius-sm: 8px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ============================================
+       RESET & BASE
+    ============================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 70px;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      color: var(--clr-text);
+      line-height: 1.7;
+      overflow-x: hidden;
+      background: var(--clr-white);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--ff-heading);
+      line-height: 1.2;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ============================================
+       GEOMETRIC PATTERN (decorative SVG bg)
+    ============================================ */
+    .pattern-bg {
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231A3A8F' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .pattern-bg-gold {
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23F5A623' fill-opacity='0.06'%3E%3Cpath d='M20 20l-5-5h10l-5 5zm0 0l5 5H15l5-5z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    /* ============================================
+       ANIMATIONS
+    ============================================ */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-left {
+      opacity: 0;
+      transform: translateX(-40px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+    }
+    .fade-in-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .fade-in-right {
+      opacity: 0;
+      transform: translateX(40px);
+      transition: opacity 0.8s var(--transition), transform 0.8s var(--transition);
+    }
+    .fade-in-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ============================================
+       SECTION HEADINGS
+    ============================================ */
+    .section-heading {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--clr-primary);
+      text-align: center;
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--clr-accent);
+      margin: 12px auto 0;
+      border-radius: 2px;
+    }
+    .section-subheading {
+      text-align: center;
+      color: var(--clr-accent);
+      font-style: italic;
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background var(--transition), box-shadow var(--transition), padding var(--transition);
+    }
+    .navbar.scrolled {
+      background: rgba(10, 26, 69, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-md);
+      padding: 10px 0;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar__logo {
+      font-family: var(--ff-heading);
+      font-size: 1.2rem;
+      color: var(--clr-white);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .navbar__logo span {
+      color: var(--clr-accent);
+    }
+    .navbar__links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+    .navbar__links a {
+      color: var(--clr-white);
+      font-size: 0.9rem;
+      font-weight: 500;
+      position: relative;
+      transition: color var(--transition);
+    }
+    .navbar__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--clr-accent);
+      transition: width var(--transition);
+    }
+    .navbar__links a:hover { color: var(--clr-accent); }
+    .navbar__links a:hover::after { width: 100%; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 26px;
+      height: 3px;
+      background: var(--clr-white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 6px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
+
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      .navbar__links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--clr-primary-deeper);
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 20px;
+        transition: right var(--transition);
+        box-shadow: var(--shadow-lg);
+      }
+      .navbar__links.open { right: 0; }
+      .navbar__links a { font-size: 1.1rem; }
+    }
+
+    /* ============================================
+       HERO SECTION
+    ============================================ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      padding: 0;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, var(--clr-primary-deeper) 0%, var(--clr-primary) 50%, #2B5CD9 100%);
+      z-index: 0;
+    }
+    .hero__bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 80%, rgba(245,166,35,0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 40%);
+    }
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M0 40h80M40 0v80M0 0l80 80M80 0L0 80'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      padding: 20px;
+    }
+    .hero__badge {
+      display: inline-block;
+      padding: 6px 20px;
+      border: 1px solid rgba(245,166,35,0.5);
+      border-radius: 30px;
+      color: var(--clr-accent);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+    .hero__title {
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      color: var(--clr-white);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero__subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.4rem);
+      color: var(--clr-accent);
+      font-style: italic;
+      font-weight: 500;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+    .hero__cta {
+      display: inline-block;
+      padding: 14px 40px;
+      background: var(--clr-accent);
+      color: var(--clr-primary-deeper);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+    .hero__cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(245,166,35,0.4);
+      background: var(--clr-accent-light);
+    }
+
+    /* Decorative floating shapes */
+    .hero__shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.08;
+      z-index: 0;
+    }
+    .hero__shape--1 {
+      width: 300px; height: 300px;
+      background: var(--clr-accent);
+      top: -100px; right: -80px;
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero__shape--2 {
+      width: 200px; height: 200px;
+      background: var(--clr-white);
+      bottom: -60px; left: -50px;
+      animation: float 8s ease-in-out infinite 1s;
+    }
+    .hero__shape--3 {
+      width: 120px; height: 120px;
+      background: var(--clr-accent);
+      top: 40%; left: 10%;
+      animation: float 7s ease-in-out infinite 0.5s;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Decorative section divider (wave) */
+    .hero__divider {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      z-index: 2;
+    }
+    .hero__divider svg {
+      display: block;
+      width: 100%;
+      height: 60px;
+    }
+
+    /* ============================================
+       ABOUT SECTION
+    ============================================ */
+    .about {
+      background: var(--clr-white);
+      position: relative;
+    }
+    .about__top-border {
+      height: 4px;
+      background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent), var(--clr-primary));
+    }
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: start;
+    }
+    @media (max-width: 768px) {
+      .about__grid { grid-template-columns: 1fr; gap: 30px; }
+    }
+    .about__text p {
+      margin-bottom: 1rem;
+      color: var(--clr-text);
+      font-size: 1.02rem;
+    }
+    .about__pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .pillar-card {
+      background: var(--clr-off-white);
+      border-radius: var(--radius);
+      padding: 24px;
+      border-left: 4px solid var(--clr-accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .pillar-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+    }
+    .pillar-card__icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .pillar-card h4 {
+      font-size: 1.1rem;
+      color: var(--clr-primary);
+      margin-bottom: 6px;
+    }
+    .pillar-card p {
+      font-size: 0.92rem;
+      color: var(--clr-text-muted);
+      line-height: 1.6;
+    }
+
+    /* Vision block */
+    .about__vision {
+      margin-top: 50px;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+      border-radius: var(--radius);
+      padding: 40px;
+      color: var(--clr-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .about__vision::before {
+      content: '\201C';
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      font-size: 10rem;
+      color: rgba(255,255,255,0.05);
+      font-family: serif;
+      line-height: 1;
+    }
+    .about__vision h3 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      color: var(--clr-accent);
+    }
+    .about__vision p {
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .about__vision .quote {
+      font-style: italic;
+      color: var(--clr-accent-light);
+      font-size: 1.1rem;
+      margin-top: 16px;
+    }
+
+    /* ============================================
+       LEADERS SECTION
+    ============================================ */
+    .leaders {
+      background: var(--clr-off-white);
+      position: relative;
+    }
+    .leaders .pattern-bg-gold {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .leaders .container { position: relative; z-index: 1; }
+    .leaders__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .leader-card {
+      background: var(--clr-white);
+      border-radius: var(--radius);
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-bottom: 4px solid var(--clr-accent);
+      transition: transform var(--transition), box-shadow var(--transition);
+      position: relative;
+    }
+    .leader-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .leader-card__photo {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .leader-card__photo-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--clr-light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--clr-primary);
+      overflow: hidden;
+    }
+    .leader-card__photo-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .leader-card h3 {
+      font-size: 1.25rem;
+      color: var(--clr-primary);
+      margin-bottom: 4px;
+    }
+    .leader-card__title {
+      color: var(--clr-accent);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    /* ============================================
+       DOWNLOAD SECTION
+    ============================================ */
+    .download {
+      background: linear-gradient(135deg, var(--clr-primary), var(--clr-primary-dark));
+      text-align: center;
+      color: var(--clr-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .download::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFFFFF' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+    }
+    .download .container { position: relative; z-index: 1; }
+    .download h2 {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 12px;
+      color: var(--clr-white);
+    }
+    .download h2::after { background: var(--clr-accent); }
+    .download p {
+      font-size: 1.05rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    .download__btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background: var(--clr-white);
+      color: var(--clr-primary);
+      font-family: var(--ff-body);
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: 2px solid var(--clr-accent);
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      letter-spacing: 0.5px;
+    }
+    .download__btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-glow-gold);
+      background: var(--clr-accent-light);
+    }
+
+    /* ============================================
+       JOIN SECTION
+    ============================================ */
+    .join {
+      background: var(--clr-light-blue);
+      position: relative;
+    }
+    .join .pattern-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .join .container { position: relative; z-index: 1; }
+    .join__form-container {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--clr-white);
+      border-radius: var(--radius);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .join__form .form-group {
+      margin-bottom: 20px;
+    }
+    .join__form label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--clr-primary);
+    }
+    .join__form input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid var(--clr-light-blue);
+      border-radius: var(--radius-sm);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      transition: border-color var(--transition), box-shadow var(--transition);
+      outline: none;
+      background: var(--clr-off-white);
+    }
+    .join__form input:focus {
+      border-color: var(--clr-primary);
+      box-shadow: 0 0 0 3px rgba(26,58,143,0.1);
+      background: var(--clr-white);
+    }
+    .join__form-submit {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, var(--clr-primary), #2B5CD9);
+      color: var(--clr-white);
+      font-family: var(--ff-body);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .join__form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .join__success {
+      display: none;
+      text-align: center;
+      padding: 30px;
+    }
+    .join__success.show {
+      display: block;
+    }
+    .join__success .checkmark {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #34D399, #059669);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.8rem;
+      color: var(--clr-white);
+    }
+    .join__success p {
+      color: var(--clr-text);
+      font-size: 1.05rem;
+    }
+    .join__success strong {
+      color: var(--clr-primary);
+    }
+
+    /* ============================================
+       CONTACT SECTION
+    ============================================ */
+    .contact {
+      background: linear-gradient(135deg, var(--clr-primary-dark), var(--clr-primary-deeper));
+      color: var(--clr-white);
+    }
+    .contact .section-heading { color: var(--clr-white); }
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    @media (max-width: 600px) {
+      .contact__grid { grid-template-columns: 1fr; }
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow-gold);
+      background: rgba(255,255,255,0.12);
+    }
+    .contact-card__icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      display: block;
+      color: var(--clr-accent);
+    }
+    .contact-card__label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--clr-accent-light);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .contact-card__value {
+      font-size: 1.05rem;
+      font-weight: 700;
+      word-break: break-all;
+    }
+    .contact__address {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.95rem;
+      opacity: 0.7;
+      font-style: italic;
+    }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    .footer {
+      background: var(--clr-primary-deeper);
+      text-align: center;
+      padding: 30px 0;
+      color: var(--clr-white);
+    }
+    .footer__name {
+      font-family: var(--ff-heading);
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+    .footer__tagline {
+      color: var(--clr-accent);
+      font-style: italic;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .footer__copy {
+      font-size: 0.8rem;
+      opacity: 0.5;
+    }
+
+    /* ============================================
+       MOBILE OVERLAY
+    ============================================ */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .nav-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="navbar__logo">TONK JILA <span>BAIRWA MAHASABHA</span></a>
+      <div class="nav-overlay" id="navOverlay"></div>
+      <ul class="navbar__links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#leaders">Leaders</a></li>
+        <li><a href="#download">Members</a></li>
+        <li><a href="#join">Join Us</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__shape hero__shape--1"></div>
+    <div class="hero__shape hero__shape--2"></div>
+    <div class="hero__shape hero__shape--3"></div>
+    <div class="hero__content">
+      <div class="hero__badge">Est. Tonk, Rajasthan</div>
+      <h1 class="hero__title">TONK JILA<br/>BAIRWA MAHASABHA</h1>
+      <p class="hero__subtitle">Shiksha · Sangathan · Samriddhi</p>
+      <a href="#join" class="hero__cta">Join Our Community</a>
+    </div>
+    <div class="hero__divider">
+      <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none">
+        <path d="M0 60L1440 60L1440 0C1200 50 960 40 720 30C480 20 240 50 0 30L0 60Z" fill="white"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="about pattern-bg" id="about">
+    <div class="about__top-border"></div>
+    <div class="container" style="padding-top: 30px;">
+      <h2 class="section-heading fade-in">About Us</h2>
+      <p class="section-subheading fade-in">Shiksha, Sangathan, Samriddhi — Education, Unity, Prosperity</p>
+      <div class="about__grid">
+        <div class="about__text fade-in-left">
+          <p>At Tonk Jila Bairwa Mahasabha, our foundation is built on the belief that unity is the greatest strength of any community. For generations, the Bairwa community has shown incredible resilience. Today, our mission is to transform that resilience into prosperity and self-reliance.</p>
+          <p>We are a dedicated collective of the Bairwa community in Tonk, Rajasthan, working tirelessly to empower our brothers and sisters. Our goal is simple yet profound: to ensure that no member of our community is left behind due to a lack of resources or opportunity.</p>
+        </div>
+        <div class="about__pillars fade-in-right">
+          <div class="pillar-card">
+            <div class="pillar-card__icon">📚</div>
+            <h4>Empowering Through Education</h4>
+            <p>Our Bairwa Community Library provides a quiet, resource-rich environment for students to study, prepare for competitive exams, and build their futures. A pen in the hand of a Bairwa youth is the strongest tool against social suppression.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-card__icon">🏠</div>
+            <h4>A Home for the Community</h4>
+            <p>The Bairwa Dharamshala stands as a symbol of our collective effort — a sanctuary and gathering place where our people find shelter, hold social functions, and strengthen the bonds of brotherhood.</p>
+          </div>
+          <div class="pillar-card">
+            <div class="pillar-card__icon">✊</div>
+            <h4>Social Upliftment & Leadership</h4>
+            <p>We provide a platform for the voices of the underprivileged. By organizing the community, we lead the Bairwa people toward economic stability, social dignity, and political awareness.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision Block -->
+      <div class="about__vision fade-in">
+        <h3>Our Vision</h3>
+        <p>To see a future where every member of the Bairwa community in Tonk is educated, financially secure, and treated with the utmost respect in society. We are moving away from the shadows of the past and stepping into a future defined by Progress and Pride.</p>
+        <p class="quote">"Educate, Agitate, Organize." — Taking inspiration from these timeless words, we invite every member of the community to join us in this journey of transformation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LEADERS ========== -->
+  <section class="leaders" id="leaders">
+    <div class="pattern-bg-gold" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="section-heading fade-in">Our Leadership</h2>
+      <p class="section-subheading fade-in">Guiding the community towards a brighter tomorrow</p>
+      <div class="leaders__grid">
+        <div class="leader-card fade-in">
+          <div class="leader-card__photo">
+            <div class="leader-card__photo-inner"><img src="photos/leader1.jpeg" alt="Shivraj Bairwa" /></div>
+          </div>
+          <h3>SHIVRAJ BAIRWA</h3>
+          <p class="leader-card__title">Adhyaksh</p>
+        </div>
+        <div class="leader-card fade-in" style="transition-delay: 0.15s;">
+          <div class="leader-card__photo">
+            <div class="leader-card__photo-inner"><img src="photos/leader2.jpeg" alt="Ramdas Bairwa" /></div>
+          </div>
+          <h3>RAMDAS BAIRWA</h3>
+          <p class="leader-card__title">Mahamantri</p>
+        </div>
+        <div class="leader-card fade-in" style="transition-delay: 0.3s;">
+          <div class="leader-card__photo">
+            <div class="leader-card__photo-inner"><img src="photos/leader3.jpeg" alt="Mahendra Bairwa" /></div>
+          </div>
+          <h3>MAHENDRA BAIRWA</h3>
+          <p class="leader-card__title">Koshaadhyaksh</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOWNLOAD ========== -->
+  <section class="download" id="download">
+    <div class="container">
+      <h2 class="section-heading fade-in">Download Member Directory</h2>
+      <p class="fade-in">Access the complete list of registered members of Tonk Jila Bairwa Mahasabha.</p>
+      <a href="member-list.pdf" download class="download__btn fade-in" id="downloadBtn">⬇ Download Member List (PDF)</a>
+    </div>
+  </section>
+
+  <!-- ========== JOIN ========== -->
+  <section class="join" id="join">
+    <div class="pattern-bg" aria-hidden="true"></div>
+    <div class="container">
+      <h2 class="section-heading fade-in">Join Our Movement</h2>
+      <p class="section-subheading fade-in">Become a part of the Tonk Jila Bairwa Mahasabha family. Fill in your details below and we will reach out to you.</p>
+      <div class="join__form-container fade-in">
+        <form class="join__form" id="joinForm" name="join-requests" netlify>
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="Enter your mobile number" required />
+          </div>
+          <button type="submit" class="join__form-submit">Submit Request</button>
+        </form>
+        <div class="join__success" id="joinSuccess">
+          <div class="checkmark">✓</div>
+          <p><strong>Thank you!</strong><br/>Your request has been received. We will contact you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-heading fade-in">Contact Us</h2>
+      <p class="section-subheading fade-in" style="color: var(--clr-accent-light);">We'd love to hear from you</p>
+      <div class="contact__grid">
+        <div class="contact-card fade-in">
+          <span class="contact-card__icon">📞</span>
+          <p class="contact-card__label">Phone</p>
+          <p class="contact-card__value">+91 XXXXX XXXXX</p>
+        </div>
+        <div class="contact-card fade-in" style="transition-delay: 0.15s;">
+          <span class="contact-card__icon">📧</span>
+          <p class="contact-card__label">Email</p>
+          <p class="contact-card__value">bairwamahasabhaTonk@gmail.com</p>
+        </div>
+      </div>
+      <p class="contact__address fade-in">Tonk Jila Bairwa Mahasabha, Rajasthan, India</p>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__name">TONK JILA BAIRWA MAHASABHA</p>
+      <p class="footer__tagline">Shiksha · Sangathan · Samriddhi</p>
+      <p class="footer__copy">© 2025 Tonk Jila Bairwa Mahasabha. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    // --- Navbar scroll effect ---
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // --- Hamburger menu ---
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    const navOverlay = document.getElementById('navOverlay');
+
+    function toggleMenu() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('open');
+      navOverlay.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
+
+    // Close menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (navLinks.classList.contains('open')) toggleMenu();
+      });
+    });
+
+    // --- Scroll fade-in (IntersectionObserver) ---
+    const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => {
+      observer.observe(el);
+    });
+
+    // --- Join form (Netlify Forms with fetch) ---
+    document.getElementById('joinForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      }).then(() => {
+        const success = document.getElementById('joinSuccess');
+        form.style.display = 'none';
+        success.classList.add('show');
+        form.reset();
+        setTimeout(() => {
+          form.style.display = 'block';
+          success.classList.remove('show');
+        }, 5000);
+      }).catch(() => {
+        alert('Something went wrong. Please try again later.');
+      });
+    });
+
+    // --- Active nav link highlight ---
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY + 100;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        const link = document.querySelector(`.navbar__links a[href="#${id}"]`);
+        if (link) {
+          link.style.color = (scrollY >= top && scrollY < top + height) ? 'var(--clr-accent)' : '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
